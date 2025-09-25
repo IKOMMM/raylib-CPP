@@ -1,11 +1,10 @@
 #include "raylib.h"
 
 int main(){
-
-    float root_beer = 1.99;
-    double cheese_burger = 5.99;
-    bool shouldHaveLunch = true;
-
+    float rootBeer = 1.9; 
+    double cheeseBeer{ 5.9 }; 
+    bool shouldHaveLunch{}; 
+    
     int width = 350;
     int height = 200;
     InitWindow(width, height, "Axe Game Miko");
