@@ -1,11 +1,40 @@
 #include "raylib.h"
 
 int main(){
-    float rootBeer = 1.9; 
-    double cheeseBeer{ 5.9 }; 
-    bool shouldHaveLunch{}; 
-    
-    int width = 350;
-    int height = 200;
+
+    //window demitions
+    int width{800};
+    int height{450};
     InitWindow(width, height, "Axe Game Miko");
+
+    //circle coordinates
+    int circle_x{200};
+    int circle_y{200};
+
+    //axe coordinates
+    int axe_x{400};
+    int axe_y{0};
+
+    SetTargetFPS(60);
+    while( WindowShouldClose() != true ){
+        BeginDrawing();
+        ClearBackground(GRAY);
+
+        //Game logic Start
+        DrawCircle(circle_x, circle_y, 25, BLUE);
+        DrawRectangle(axe_x, axe_y, 50, 50, RED);
+
+        if( IsKeyDown(KEY_D) && circle_x < width ){
+            circle_x += 10;
+        }
+        else if( IsKeyDown(KEY_A) && circle_x > 0 ){
+            circle_x -= 10;
+        }
+
+        //move axe
+        axe_y += 10;
+
+        //Game logic End
+        EndDrawing();
+    }
 }
