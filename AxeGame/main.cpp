@@ -14,6 +14,7 @@ int main(){
     //axe coordinates
     int axe_x{400};
     int axe_y{0};
+    int direction{10};
 
     SetTargetFPS(60);
     while( WindowShouldClose() != true ){
@@ -32,7 +33,10 @@ int main(){
         }
 
         //move axe
-        axe_y += 10;
+        axe_y += direction;
+        if(axe_y > height || axe_y < 0 ){
+            direction = -direction;
+        }
 
         //Game logic End
         EndDrawing();
