@@ -1,7 +1,6 @@
 #include "raylib.h"
 
 int main(){
-
     //window demitions
     int width{800};
     int height{450};
@@ -26,7 +25,11 @@ int main(){
     int b_axe_y{axe_y + axe_length};
     
     int direction{10};
-    bool collision_with_axe{true};
+    bool collision_with_axe = 
+        (b_axe_y >= u_circle_y) && 
+        (u_axe_y <= b_circle_y) && 
+        (r_axe_x >= l_circle_x) && 
+        (l_axe_x <= r_circle_x);
 
     SetTargetFPS(60);
     while( WindowShouldClose() != true ){
@@ -38,6 +41,25 @@ int main(){
         }
         else{
             //Game logic Start
+
+            //Update Edges
+            l_circle_x = circle_x - circle_radius;
+            r_circle_x = circle_x + circle_radius;
+            u_circle_y = circle_y - circle_radius;
+            b_circle_y = circle_y + circle_radius;
+            l_axe_x = axe_x;
+            r_axe_x = axe_x + axe_length;
+            u_axe_y = axe_y;
+            b_axe_y = axe_y + axe_length;
+
+            //Update collision with axe
+            collision_with_axe = 
+                (b_axe_y >= u_circle_y) && 
+                (u_axe_y <= b_circle_y) && 
+                (r_axe_x >= l_circle_x) && 
+                (l_axe_x <= r_circle_x);
+
+
             DrawCircle(circle_x, circle_y, circle_radius, BLUE);
             DrawRectangle(axe_x, axe_y, axe_length, axe_length, RED);
 
