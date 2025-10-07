@@ -7,5 +7,10 @@
 		"**/.DS_Store": true,
 		"**/*.o": true,
 		"**/*.exe": true,
+	},
+	"workbench.colorCustomizations": {
+		"activityBar.background": "#113416",
+		"titleBar.activeBackground": "#18491E",
+		"titleBar.activeForeground": "#F7FCF8"
 	}
 }
